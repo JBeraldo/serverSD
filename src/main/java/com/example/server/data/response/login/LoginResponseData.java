@@ -1,12 +1,15 @@
-package com.example.server.data.login;
+package com.example.server.data.response.login;
 
 import com.example.server.base.ResponseData;
 
-public class LoginData extends ResponseData {
+public class LoginResponseData extends ResponseData {
     private String token;
 
-    public LoginData(String token) {
+    public LoginResponseData(String token) {
         this.token = token;
+    }
+
+    public LoginResponseData() {
     }
 
     public String getToken() {

@@ -11,6 +11,11 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
+
+    public HelloController() throws IOException {
+        Server.start();
+    }
+
     @FXML
     protected void onHelloButtonClick() throws IOException {
         Stage stage = (Stage) welcomeText.getScene().getWindow();

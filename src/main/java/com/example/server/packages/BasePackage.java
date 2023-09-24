@@ -1,15 +1,18 @@
-package com.example.server.responses;
+package com.example.server.packages;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.server.base.ResponseData;
 
 @JsonInclude(Include.NON_NULL)
-public class BaseResponse {
+public class BasePackage {
 
     private String action;
+
     private ResponseData data;
 
     private boolean error;
@@ -48,7 +51,10 @@ public class BaseResponse {
         this.message = message;
     }
 
-    public BaseResponse(String action, ResponseData data, boolean error, String message) {
+    public BasePackage() {
+        // Default constructor
+    }
+    public BasePackage(String action, ResponseData data, boolean error, String message) {
         this.action = action;
         this.data = data;
         this.error = error;
@@ -60,8 +66,14 @@ public class BaseResponse {
         return jackson.writeValueAsString(this);
     }
     public static <T> T fromJson(String json, Class<T> generic_response) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(json, generic_response);
+        ObjectMapper jackson = new ObjectMapper();
+        return jackson.readValue(json, generic_response);
     }
+    public static BaseRequest simpleFromJson(String json) throws JsonProcessingException {
+        ObjectMapper jackson = new ObjectMapper();
+        jackson.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return jackson.readValue(json, BaseRequest.class);
+    }
+
 
 }

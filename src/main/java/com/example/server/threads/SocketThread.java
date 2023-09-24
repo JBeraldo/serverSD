@@ -1,7 +1,7 @@
 package com.example.server.threads;
 
 import com.example.server.actions.ActionHandler;
-import com.example.server.responses.BaseResponse;
+import com.example.server.packages.BasePackage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,7 +36,7 @@ public class SocketThread extends Thread
 
             while ((request = in.readLine()) != null)
             {
-                BaseResponse response  = actionHandler.dispatch(request);
+                BasePackage response  = actionHandler.dispatch(request);
                 out.println(response.toJson());
             }
 
