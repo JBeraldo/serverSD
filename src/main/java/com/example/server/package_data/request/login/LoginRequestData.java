@@ -1,4 +1,4 @@
-package com.example.server.data.request.login;
+package com.example.server.package_data.request.login;
 
 import com.example.server.base.ResponseData;
 

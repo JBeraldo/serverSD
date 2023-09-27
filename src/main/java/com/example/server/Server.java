@@ -1,52 +1,39 @@
 package com.example.server;
 
 
+import com.example.server.database.DatabaseService;
+import com.example.server.threads.Connections;
 import com.example.server.threads.SocketThread;
+import org.apache.logging.log4j.LogManager;
 
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.sql.SQLException;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Server {
-    public static void start() throws IOException
-    {
-        ServerSocket serverSocket = null;
 
-        try {
-            serverSocket = new ServerSocket(10008);
-            System.out.println ("Connection Socket Created");
+    public static Connections connections = new Connections("connections");
+
+    public static void start(Integer port) {
+        DatabaseService.up();
+        new Thread(() -> {
             try {
-                while (true)
-                {
-                    // Serialize the Person object to JSON
-                    System.out.println ("Waiting for Connection");
-                    new SocketThread(serverSocket.accept());
+                int count = 0;
+                while (true){
+                    ServerSocket serverSocket = new ServerSocket(port);
+                    new SocketThread(serverSocket.accept(), connections, Integer.toString(count));
+                    countConnections();
+                    count++;
                 }
+            } catch (IOException e) {
             }
-            catch (IOException e)
-            {
-                System.err.println("Accept failed.");
-                System.err.println(e.getMessage());
-                System.exit(1);
-            }
-        }
-        catch (IOException e)
-        {
-            System.err.println("Could not listen on port: 10008.");
-            System.exit(1);
-        }
-        finally
-        {
-            try {
-                serverSocket.close();
-            }
-            catch (IOException e)
-            {
-                System.err.println("Could not close port: 10008.");
-                System.exit(1);
-            }
-        }
+        }).start();
+    }
+
+    //TODO: ver por que quando fica sem nenhuma conexão cai o servidor
+
+    public static void countConnections(){
+        System.out.println(connections.activeCount());
     }
 }

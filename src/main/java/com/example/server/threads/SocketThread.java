@@ -12,13 +12,14 @@ import java.net.Socket;
 public class SocketThread extends Thread
 {
     protected static boolean serverContinue = true;
-    protected Socket clientSocket;
+    protected Socket socket;
 
     protected ActionHandler actionHandler = new ActionHandler();
 
-    public SocketThread (Socket clientSoc)
+    public SocketThread (Socket socket,ThreadGroup tgp,String name)
     {
-        clientSocket = clientSoc;
+        super(tgp,name);
+        this.socket = socket;
         start();
     }
 
@@ -27,10 +28,10 @@ public class SocketThread extends Thread
         System.out.println ("New Communication Thread Started");
 
         try {
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),
+            PrintWriter out = new PrintWriter(socket.getOutputStream(),
                     true);
             BufferedReader in = new BufferedReader(
-                    new InputStreamReader( clientSocket.getInputStream()));
+                    new InputStreamReader( socket.getInputStream()));
 
             String request;
 
@@ -42,8 +43,7 @@ public class SocketThread extends Thread
 
             out.close();
             in.close();
-            clientSocket.close();
-            return ;
+            socket.close();
         }
         catch (IOException e)
         {
