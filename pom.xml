@@ -21,6 +21,11 @@
             <version>20.0.1</version>
         </dependency>
         <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>20.0.1</version>
@@ -36,7 +41,16 @@
             <version>0.11.2</version>
             <scope>runtime</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.3.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-community-dialects</artifactId>
+            <version>6.3.1.Final</version>
+        </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
@@ -53,17 +67,6 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.43.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>5.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.20.0</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -74,14 +77,13 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.13.0</version>
+            <version>2.17.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.17.1</version>
         </dependency>
-
 
 
     </dependencies>
@@ -106,7 +108,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.serversd/com.example.view.App</mainClass>
+                            <mainClass>com.sd.serversd/com.sd.view.App</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

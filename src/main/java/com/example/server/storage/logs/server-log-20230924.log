@@ -1,7 +1,0 @@
-2023-09-24 20:17:06.820 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:16.658 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:17.316 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:17.499 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:17.631 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:17.766 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
-2023-09-24 20:17:17.930 [0] INFO  com.example.server.logging.Logger - {"action":"login","error":false}
