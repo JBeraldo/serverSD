@@ -1,6 +1,7 @@
 package com.sd.server.threads;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class GatewayThread extends Thread{
         List<Thread> threads = new LinkedList<>();
         ServerSocket serverSocket = null;
         try {
-            serverSocket = new ServerSocket(port);
+            InetAddress enderecoIP = InetAddress.getByName("0.0.0.0");
+            serverSocket = new ServerSocket(port,0,enderecoIP);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

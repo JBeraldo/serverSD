@@ -9,9 +9,8 @@ import com.sd.server.threads.GatewayThread;
 public class Server {
 
     public static Connections connections = new Connections("connections");
-    private static JWTSessionDAO jwtSessionDAO = new JWTSessionDAO();
-    private static UserDAO userDAO= new UserDAO();
-
+    private static final JWTSessionDAO jwtSessionDAO = new JWTSessionDAO();
+    private static final UserDAO userDAO= new UserDAO();
 
     public static void start(Integer port) {
         jwtSessionDAO.deleteAllJWTSession();

@@ -25,7 +25,7 @@ public class LoginRepository {
 
         authUser(request.getData().getPassword(),user);
 
-        String jwt = JwtTokenProvider.createJwt(user.getId().toString());
+        String jwt = JwtTokenProvider.createJwt(user.getId().toString(),user.isAdm());
 
         jwt_session_dao.addJWTSession(new JWTSession(jwt,user));
 

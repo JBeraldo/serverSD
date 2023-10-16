@@ -5,6 +5,8 @@ import com.sd.server.package_data.request.user.CreateUserRequestData;
 import com.sd.server.packages.user.CreateUserRequestPackage;
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -80,6 +82,8 @@ public class User {
     public String getType() {
         return type;
     }
+
+    public boolean isAdm(){return Objects.equals(type, "admin");}
 
     public void setType(String type) {
         this.type = type;

@@ -21,7 +21,7 @@ public class ActionHandler {
             return switch (action) {
                 case "login" -> login_repository.login(action, response_action);
                 case "logout" -> login_repository.logout(action, response_action);
-                case "criar-usuario" -> user_repository.create(action, response_action);
+                case "cadastro-usuario" -> user_repository.create(action, response_action);
                 default -> new BasePackage(response_action, null, true, "Rota não encontrada");
             };
         }catch(NotFoundException | UnauthorizedUserException | NoSessionException e){

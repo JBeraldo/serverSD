@@ -1,54 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="Front enviando Json">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/models/JWTSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/logout/LogoutRequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/logout/LogoutPackage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/CreateUserRequestPackage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bd22119a-9d06-4782-bd8f-1417b5653b88.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bd22119a-9d06-4782-bd8f-1417b5653b88/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+    <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="Login e create user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/actions/ActionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/auth/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/base/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/base/ResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/database/DatabaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/database/SchemaInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/exceptions/UnauthorizedUserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/UnauthorizedUserException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/package_data/request/login/LoginRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/login/LoginRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/package_data/response/login/LoginResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/response/login/LoginResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/packages/BasePackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/BasePackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/packages/BaseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/BaseRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/packages/login/LoginPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/login/LoginPackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/storage/logs/server-log-20230924.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/threads/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/Connections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/threads/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/SocketThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/view/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/view/modal/ModalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/view/modal/ModalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META_INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META_INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/server/database/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/view/modal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sd/view/modal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +73,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -166,11 +139,31 @@
       <workItem from="1696689749676" duration="3021000" />
       <workItem from="1696694286288" duration="3336000" />
       <workItem from="1696773693297" duration="8319000" />
+      <workItem from="1696947330036" duration="684000" />
+      <workItem from="1696980483508" duration="2348000" />
+      <workItem from="1697060886389" duration="6693000" />
+      <workItem from="1697212284207" duration="595000" />
+      <workItem from="1697246060595" duration="1809000" />
+      <workItem from="1697302011768" duration="2735000" />
+      <workItem from="1697391292209" duration="601000" />
     </task>
+    <task id="LOCAL-00001" summary="Login e create user">
+      <option name="closed" value="true" />
+      <created>1696947415283</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696947415283</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Login e create user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login e create user" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

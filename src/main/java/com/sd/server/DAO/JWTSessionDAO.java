@@ -46,11 +46,12 @@ public class JWTSessionDAO {
             Transaction tx = session.beginTransaction();
             Query<JWTSession> query = session.createQuery("DELETE from JWTSession WHERE user.id = :user_id", JWTSession.class);
             query.setParameter("user_id",user_id);
+            query.executeUpdate();
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    };
+    }
 
     public boolean hasUserActiveSession(int user_id) {
         try (Session session = sessionFactory.openSession()) {
