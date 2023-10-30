@@ -41,12 +41,29 @@ public class JWTSessionDAO {
         }
     }
 
-    public void deleteUserAllSessions(Integer user_id){
+    public void deleteAllUserJWTSession(Long user_id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            Query<JWTSession> query = session.createQuery("DELETE from JWTSession WHERE user.id = :user_id", JWTSession.class);
+            Query query = session.createQuery("DELETE FROM JWTSession WHERE JWTSession.user.id = :user_id");
             query.setParameter("user_id",user_id);
             query.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void logout(String token){
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            Query<JWTSession> query = session.createQuery("FROM JWTSession WHERE token like :token", JWTSession.class);
+
+            query.setParameter("token",token);
+            query.setMaxResults(1);
+            JWTSession firstRecord = (JWTSession) query.uniqueResult();
+            if (firstRecord != null) {
+                session.delete(firstRecord);
+            }
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,7 +75,7 @@ public class JWTSessionDAO {
             Query query = session.createQuery("SELECT COUNT(*) from JWTSession where user.id = :user_id");
             query.setParameter("user_id",user_id);
             Long count = (Long)query.uniqueResult();
-            return count == 1;
+            return count >= 1;
         } catch (Exception e) {
             e.printStackTrace();
         }

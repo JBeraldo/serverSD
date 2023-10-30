@@ -3,14 +3,12 @@ package com.sd.server.package_data.request.user;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sd.server.base.ResponseData;
 import com.sd.server.models.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class CreateUserRequestData extends ResponseData {
-    @JsonProperty("nome")
     String name;
     String email;
-    @JsonProperty("senha")
     String password;
-    @JsonProperty("tipo")
     String type;
     String token;
 
@@ -60,6 +58,7 @@ public class CreateUserRequestData extends ResponseData {
     public String getToken() {
         return token;
     }
+
 
     public void setToken(String token) {
         this.token = token;

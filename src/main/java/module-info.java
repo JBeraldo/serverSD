@@ -9,6 +9,7 @@ module com.example.serversd {
     requires org.hibernate.orm.core;
     requires jakarta.persistence;
     requires java.naming;
+    requires jbcrypt;
 
     opens com.sd.view.modal to javafx.fxml;
     opens com.sd.view to javafx.fxml;
@@ -26,5 +27,7 @@ module com.example.serversd {
     exports com.sd.server.packages.user to com.fasterxml.jackson.databind;
     exports com.sd.server.package_data.request.logout to com.fasterxml.jackson.databind;
     exports com.sd.server.packages.logout to com.fasterxml.jackson.databind;
+    exports com.sd.server.package_data.response.user to com.fasterxml.jackson.databind;
+    exports com.sd.server.models to com.fasterxml.jackson.databind;
     exports com.sd.view;
 }

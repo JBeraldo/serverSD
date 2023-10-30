@@ -3,6 +3,7 @@ package com.sd.server;
 
 import com.sd.server.DAO.JWTSessionDAO;
 import com.sd.server.DAO.UserDAO;
+import com.sd.server.exceptions.EmailAlreadyUsedException;
 import com.sd.server.threads.Connections;
 import com.sd.server.threads.GatewayThread;
 
@@ -18,4 +19,6 @@ public class Server {
         Thread gateway = new GatewayThread(connections,port);
         gateway.start();
     }
+    //todo: erro logout
+    //todo: colocar exception de token invalido
 }

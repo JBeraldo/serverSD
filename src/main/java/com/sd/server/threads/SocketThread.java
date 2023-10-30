@@ -11,13 +11,19 @@ import java.net.Socket;
 
 public class SocketThread extends Thread
 {
-    protected static boolean serverContinue = true;
     protected Socket socket;
+
+    public static String ip;
     public SocketThread (Socket socket,ThreadGroup tgp,String name)
     {
         super(tgp,name);
         this.socket = socket;
+        setIp(socket);
         start();
+    }
+
+    private static void setIp(Socket skt){
+        ip = skt.getRemoteSocketAddress().toString();
     }
 
     public void run()

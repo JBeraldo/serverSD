@@ -1,5 +1,6 @@
 package com.sd.server.DAO;
 
+import com.sd.server.exceptions.EmailAlreadyUsedException;
 import com.sd.server.exceptions.NotFoundException;
 import com.sd.server.models.User;
 import org.hibernate.Session;
@@ -73,10 +74,12 @@ public class UserDAO {
         }
     }
 
-    public void deleteUser(User user) {
+    public void deleteUser(Long user_id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            session.delete(user);
+            Query query = session.createQuery("DELETE FROM User WHERE id = :user_id");
+            query.setParameter("user_id",user_id);
+            query.executeUpdate();
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,15 +97,22 @@ public class UserDAO {
             throw new NotFoundException("Usuário não encontrado");
     }
 
-    public void addUserIfNotExistByEmail(User user) {
+    public void addUserIfNotExistByEmail(User user) throws EmailAlreadyUsedException {
         if (!isUserExistsByEmail(user.getEmail())) {
             addUser(user);
         }
+        else {
+            throw new EmailAlreadyUsedException();
+        }
     }
 
-    public void addFirstUser(){
-        User user = new User("Admin","0192023A7BBD73250516F069DF18B500","admin@sd.com","admin");
-        addUserIfNotExistByEmail(user);
+    public void addFirstUser() {
+        User user = new User("Admin","$2a$10$52ds0zBAVM7nMuGbdbz.SObIZDWre5I.Rg/vT2n/HpuVi3/Rh176K","admin@sd.com","admin");
+        try {
+            addUserIfNotExistByEmail(user);
+        } catch (EmailAlreadyUsedException ignored) {
+
+        }
     }
 
     public boolean isUserExistsByEmail(String email) {

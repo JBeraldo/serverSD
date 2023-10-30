@@ -7,16 +7,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="Login e create user">
+    <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="ajustes protocolo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/EmailAlreadyUsedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/WrongCredentialsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/DeleteUserRequestData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/GetUserRequestData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/response/user/GetUserResponseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/DeleteUserRequestPackage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/GetUserRequestPackage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/models/JWTSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/models/JWTSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/SocketThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +157,15 @@
       <workItem from="1697246060595" duration="1809000" />
       <workItem from="1697302011768" duration="2735000" />
       <workItem from="1697391292209" duration="601000" />
+      <workItem from="1697485991022" duration="624000" />
+      <workItem from="1697489794627" duration="3171000" />
+      <workItem from="1697508301595" duration="597000" />
+      <workItem from="1697579344172" duration="5373000" />
+      <workItem from="1697665612641" duration="3932000" />
+      <workItem from="1698090220821" duration="598000" />
+      <workItem from="1698186533308" duration="5762000" />
+      <workItem from="1698271015014" duration="597000" />
+      <workItem from="1698598815482" duration="11569000" />
     </task>
     <task id="LOCAL-00001" summary="Login e create user">
       <option name="closed" value="true" />
@@ -155,15 +175,43 @@
       <option name="project" value="LOCAL" />
       <updated>1696947415283</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ajustes protocolo">
+      <option name="closed" value="true" />
+      <created>1697486010049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697486010049</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ajustes protocolo">
+      <option name="closed" value="true" />
+      <created>1697489839395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697489839395</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Login e create user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login e create user" />
+    <MESSAGE value="ajustes protocolo" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes protocolo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

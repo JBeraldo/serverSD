@@ -1,8 +1,6 @@
 package com.sd.server.actions;
 
-import com.sd.server.exceptions.NoSessionException;
-import com.sd.server.exceptions.NotFoundException;
-import com.sd.server.exceptions.UnauthorizedUserException;
+import com.sd.server.exceptions.*;
 import com.sd.server.packages.BasePackage;
 import com.sd.server.packages.BaseRequest;
 import com.sd.server.repositories.LoginRepository;
@@ -22,9 +20,11 @@ public class ActionHandler {
                 case "login" -> login_repository.login(action, response_action);
                 case "logout" -> login_repository.logout(action, response_action);
                 case "cadastro-usuario" -> user_repository.create(action, response_action);
+                case "listar-usuarios" -> user_repository.get(action, response_action);
+                case "excluir-usuario" -> user_repository.destroy(action, response_action);
                 default -> new BasePackage(response_action, null, true, "Rota não encontrada");
             };
-        }catch(NotFoundException | UnauthorizedUserException | NoSessionException e){
+        }catch(Exception e){
             return new BasePackage(action, null, true, e.getMessage());
         }
     }

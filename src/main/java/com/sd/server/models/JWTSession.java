@@ -12,19 +12,16 @@ public class JWTSession {
     private Long id;
 
     private String token;
-    @OneToOne
+
+    private String ip;
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public JWTSession(Long id, String token, User user) {
-        this.id = id;
+    public JWTSession(String token, User user,String ip) {
         this.token = token;
         this.user = user;
-    }
-
-    public JWTSession(String token, User user) {
-        this.token = token;
-        this.user = user;
+        this.ip = ip;
     }
 
     public JWTSession() {

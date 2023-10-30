@@ -1,8 +1,8 @@
 package com.sd.server.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sd.server.package_data.request.user.CreateUserRequestData;
-import com.sd.server.packages.user.CreateUserRequestPackage;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -15,9 +15,9 @@ public class User {
     private Long id;
     @Column
     private String name;
-    @Transient
+    @Transient @JsonIgnore
     private String token;
-    @Column
+    @Column @JsonIgnore
     private String password;
     @Column
     private String email;
@@ -83,6 +83,7 @@ public class User {
         return type;
     }
 
+    @JsonIgnore
     public boolean isAdm(){return Objects.equals(type, "admin");}
 
     public void setType(String type) {
