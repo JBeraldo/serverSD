@@ -3,9 +3,8 @@ package com.sd.server;
 
 import com.sd.server.DAO.JWTSessionDAO;
 import com.sd.server.DAO.UserDAO;
-import com.sd.server.exceptions.EmailAlreadyUsedException;
-import com.sd.server.threads.Connections;
-import com.sd.server.threads.GatewayThread;
+import com.sd.server.Threads.Connections;
+import com.sd.server.Threads.GatewayThread;
 
 public class Server {
 

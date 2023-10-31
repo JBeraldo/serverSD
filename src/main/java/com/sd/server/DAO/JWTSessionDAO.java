@@ -1,6 +1,6 @@
 package com.sd.server.DAO;
 
-import com.sd.server.models.JWTSession;
+import com.sd.server.Models.JWTSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -35,6 +35,18 @@ public class JWTSessionDAO {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
             session.createQuery("DELETE FROM JWTSession WHERE TRUE").executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAllJWTSessionByIp(String skt_ip) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("DELETE FROM JWTSession WHERE ip like :ip");
+            query.setParameter("ip",skt_ip);
+            query.executeUpdate();
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();

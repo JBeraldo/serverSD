@@ -1,8 +1,8 @@
 package com.sd.server.DAO;
 
-import com.sd.server.exceptions.EmailAlreadyUsedException;
-import com.sd.server.exceptions.NotFoundException;
-import com.sd.server.models.User;
+import com.sd.server.Exceptions.EmailAlreadyUsedException;
+import com.sd.server.Exceptions.NotFoundException;
+import com.sd.server.Models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -67,6 +67,7 @@ public class UserDAO {
     public void updateUser(User user) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
+            System.out.println(user);
             session.update(user);
             tx.commit();
         } catch (Exception e) {

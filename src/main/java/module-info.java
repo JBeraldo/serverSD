@@ -13,21 +13,18 @@ module com.example.serversd {
 
     opens com.sd.view.modal to javafx.fxml;
     opens com.sd.view to javafx.fxml;
-    opens com.sd.server.models to org.hibernate.orm.core;
-    opens com.sd.server.exceptions;
+    opens com.sd.server.Models to org.hibernate.orm.core;
+    opens com.sd.server.Exceptions;
     opens com.sd.server;
 
     exports com.sd.view.modal;
-    exports com.sd.server.packages to com.fasterxml.jackson.databind;
-    exports com.sd.server.base to com.fasterxml.jackson.databind;
-    exports com.sd.server.package_data.request.login to com.fasterxml.jackson.databind;
-    exports com.sd.server.package_data.response.login to com.fasterxml.jackson.databind;
-    exports com.sd.server.packages.login to com.fasterxml.jackson.databind;
-    exports com.sd.server.package_data.request.user to com.fasterxml.jackson.databind;
-    exports com.sd.server.packages.user to com.fasterxml.jackson.databind;
-    exports com.sd.server.package_data.request.logout to com.fasterxml.jackson.databind;
-    exports com.sd.server.packages.logout to com.fasterxml.jackson.databind;
-    exports com.sd.server.package_data.response.user to com.fasterxml.jackson.databind;
-    exports com.sd.server.models to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages to com.fasterxml.jackson.databind;
+    exports com.sd.server.Base to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.request.login to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.response.login to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.request.user to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.request.logout to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.response.user to com.fasterxml.jackson.databind;
+    exports com.sd.server.Models to com.fasterxml.jackson.databind;
     exports com.sd.view;
 }

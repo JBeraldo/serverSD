@@ -12,6 +12,8 @@
 
         <!-- Specify dialect -->
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
+        <property name="hibernate.connection.autocommit">true</property>
+
 
         <!-- Echo all executed statements -->
         <property name="hibernate.show_sql">true</property>
@@ -20,8 +22,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapping annotated class -->
-        <mapping class="com.sd.server.models.User" />
-        <mapping class="com.sd.server.models.JWTSession" />
+        <mapping class="com.sd.server.Models.User" />
+        <mapping class="com.sd.server.Models.JWTSession" />
 
     </session-factory>
 </hibernate-configuration>
