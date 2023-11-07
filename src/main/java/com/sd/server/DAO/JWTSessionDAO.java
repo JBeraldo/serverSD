@@ -56,7 +56,7 @@ public class JWTSessionDAO {
     public void deleteAllUserJWTSession(Long user_id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("DELETE FROM JWTSession WHERE JWTSession.user.id = :user_id");
+            Query query = session.createQuery("DELETE FROM JWTSession WHERE JWTSession.user = :user_id");
             query.setParameter("user_id",user_id);
             query.executeUpdate();
             tx.commit();
@@ -82,7 +82,7 @@ public class JWTSessionDAO {
         }
     }
 
-    public boolean hasUserActiveSession(int user_id) {
+    public boolean hasUserActiveSession(Long user_id) {
         try (Session session = sessionFactory.openSession()) {
             Query query = session.createQuery("SELECT COUNT(*) from JWTSession where user.id = :user_id");
             query.setParameter("user_id",user_id);

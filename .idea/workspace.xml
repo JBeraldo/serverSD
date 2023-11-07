@@ -8,48 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="Segunda entrega sem autoexclusão + refactor packages">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/EditUserRequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/FindSelfUserRequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/FindUserRequestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/response/user/FindUserResponseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/DeleteSelfUserRequestData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/EditSelfUserRequestData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Actions/ActionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Actions/ActionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/actions/ActionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Actions/ActionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/auth/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/AuthRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/base/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Base/ResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/EmailAlreadyUsedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Exceptions/EmailAlreadyUsedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/NoSessionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Exceptions/NoSessionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Exceptions/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/UnauthorizedUserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Exceptions/UnauthorizedUserException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/exceptions/WrongCredentialsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Exceptions/WrongCredentialsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/models/JWTSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/JWTSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/login/LoginRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/login/LoginRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/logout/LogoutRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/logout/LogoutRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/CreateUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/CreateUserRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/DeleteUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/DeleteUserRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/request/user/GetUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/GetUserRequestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/response/login/LoginResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/response/login/LoginResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/package_data/response/user/GetUserResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/response/user/GetUserResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/BasePackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/BasePackage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/BaseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/BaseRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/login/LoginPackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/logout/LogoutPackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/CreateUserRequestPackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/DeleteUserRequestPackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/packages/user/GetUserRequestPackage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/LoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/EditUserRequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Packages/data/request/user/EditUserRequestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/AuthRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Threads/Connections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/GatewayThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Threads/GatewayThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/threads/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Threads/SocketThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META_INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META_INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,11 +95,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/example" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sd.server.Packages.data.request.user" />
       <recent name="com.sd.server.Packages.user" />
       <recent name="com.sd.server.Packages.package_data.request.user" />
       <recent name="com.sd.server.packages.user" />
       <recent name="com.sd.server.package_data.request.user" />
-      <recent name="com.example.server.data.response" />
     </key>
   </component>
   <component name="RunManager">
@@ -192,7 +159,8 @@
       <workItem from="1698186533308" duration="5762000" />
       <workItem from="1698271015014" duration="597000" />
       <workItem from="1698598815482" duration="26477000" />
-      <workItem from="1698773178843" duration="3515000" />
+      <workItem from="1698773178843" duration="8946000" />
+      <workItem from="1698875604542" duration="2617000" />
     </task>
     <task id="LOCAL-00001" summary="Login e create user">
       <option name="closed" value="true" />
@@ -226,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698633665846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Segunda entrega sem autoexclusão + refactor packages">
+      <option name="closed" value="true" />
+      <created>1698777290653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698777290653</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

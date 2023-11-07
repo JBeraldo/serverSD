@@ -17,9 +17,9 @@ public class AuthRepository {
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }
-    public static int getUserId(String token) {
+    public static Long getUserId(String token) {
         Jws<Claims> jws = Jwts.parserBuilder().setSigningKey(SECRET_KEY).build().parseClaimsJws(token);
-        return Integer.parseInt(jws.getBody().getSubject());
+        return Long.parseLong(jws.getBody().getSubject());
     }
 
     public static boolean isAdmin(String token){

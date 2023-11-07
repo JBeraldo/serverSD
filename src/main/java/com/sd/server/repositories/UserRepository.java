@@ -6,6 +6,7 @@ import com.sd.server.DAO.UserDAO;
 import com.sd.server.Exceptions.EmailAlreadyUsedException;
 import com.sd.server.Exceptions.NoSessionException;
 import com.sd.server.Exceptions.UnauthorizedUserException;
+import com.sd.server.Exceptions.WrongCredentialsException;
 import com.sd.server.Models.User;
 import com.sd.server.Packages.data.request.user.*;
 import com.sd.server.Packages.data.response.user.FindUserResponseData;
@@ -23,7 +24,7 @@ public class UserRepository {
 
     public BasePackage create(String action, String create_request) throws JsonProcessingException, UnauthorizedUserException, NoSessionException, EmailAlreadyUsedException {
         BasePackage<CreateUserRequestData> request = BasePackage.fromJson(create_request, CreateUserRequestData.class);
-        int user_id = AuthRepository.getUserId(request.getData().getToken());
+        Long user_id = AuthRepository.getUserId(request.getData().getToken());
         this.validateAdminUser(user_id);
         User user = new User(request.getData());
         user.setPassword(hashUserPassw(user.getPassword()));
@@ -35,7 +36,7 @@ public class UserRepository {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
-    private void validateAdminUser(int user_id) throws UnauthorizedUserException, NoSessionException {
+    private void validateAdminUser(long user_id) throws UnauthorizedUserException, NoSessionException {
         if(!userDAO.isUserAdmin(user_id)){
             throw new UnauthorizedUserException();
         }
@@ -43,7 +44,7 @@ public class UserRepository {
             throw new NoSessionException();
         }
     }
-    private void validateLoggedUser(int user_id) throws UnauthorizedUserException, NoSessionException {
+    private void validateLoggedUser(Long user_id) throws UnauthorizedUserException, NoSessionException {
         if(!jwtSessionDAO.hasUserActiveSession(user_id)){
             throw new NoSessionException();
         }
@@ -51,7 +52,7 @@ public class UserRepository {
 
     public BasePackage<FindUserResponseData> find(String action, String get_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<FindUserRequestData> request = BasePackage.fromJson(get_request, FindUserRequestData.class);
-        int logged_user_id = AuthRepository.getUserId(request.getData().getToken());
+        Long logged_user_id = AuthRepository.getUserId(request.getData().getToken());
         Long user_id = request.getData().getUser_id();
         this.validateLoggedUser(logged_user_id);
         User user = userDAO.getUserById(user_id);
@@ -61,7 +62,7 @@ public class UserRepository {
 
     public BasePackage<FindUserResponseData> findSelf(String action, String get_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<FindSelfUserRequestData> request = BasePackage.fromJson(get_request, FindSelfUserRequestData.class);
-        int logged_user_id = AuthRepository.getUserId(request.getData().getToken());
+        Long logged_user_id = AuthRepository.getUserId(request.getData().getToken());
         this.validateLoggedUser(logged_user_id);
         User user = userDAO.getUserById(logged_user_id);
         FindUserResponseData response_data = new FindUserResponseData(user);
@@ -70,7 +71,7 @@ public class UserRepository {
 
     public BasePackage destroy(String action, String destroy_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<DeleteUserRequestData> request = BasePackage.fromJson(destroy_request, DeleteUserRequestData.class);
-        int adm_id = AuthRepository.getUserId(request.getData().getToken());
+        Long adm_id = AuthRepository.getUserId(request.getData().getToken());
         long user_id = request.getData().getUser_id();
         this.validateAdminUser(adm_id);
         userDAO.deleteUser(user_id);
@@ -80,7 +81,7 @@ public class UserRepository {
 
     public BasePackage<GetUserResponseData> get(String action, String get_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<GetUserRequestData> request = BasePackage.fromJson(get_request, GetUserRequestData.class);
-        int user_id = AuthRepository.getUserId(request.getData().getToken());
+        Long user_id = AuthRepository.getUserId(request.getData().getToken());
         this.validateAdminUser(user_id);
         List<User> users = userDAO.getAllUsers();
         GetUserResponseData response_data = new GetUserResponseData(users);
@@ -88,9 +89,9 @@ public class UserRepository {
     }
     public BasePackage update(String action, String update_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<EditUserRequestData> request = BasePackage.fromJson(update_request, EditUserRequestData.class);
-        int user_id = AuthRepository.getUserId(request.getData().getToken());
+        Long user_id = AuthRepository.getUserId(request.getData().getToken());
         this.validateLoggedUser(user_id);
-        User user = userDAO.getUserById(request.getData().getId());
+        User user = userDAO.getUserById(request.getData().getUser_id());
         if(AuthRepository.isAdmin(request.getData().getToken())){
             user.setType(request.getData().getType());
         }
@@ -101,6 +102,37 @@ public class UserRepository {
         user.setEmail(request.getData().getEmail());
         userDAO.updateUser(user);
         return new BasePackage(action,null,false,"Sucesso");
+    }
+
+    public BasePackage updateSelf(String action, String update_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
+        BasePackage<EditSelfUserRequestData> request = BasePackage.fromJson(update_request, EditSelfUserRequestData.class);
+        Long user_id = AuthRepository.getUserId(request.getData().getToken());
+        this.validateLoggedUser(user_id);
+        User user = userDAO.getUserById(request.getData().getId());
+        if(request.getData().getPassword() != null){
+            user.setPassword(hashUserPassw(request.getData().getPassword()));
+        }
+        user.setName(request.getData().getName());
+        user.setEmail(request.getData().getEmail());
+        userDAO.updateUser(user);
+        return new BasePackage(action,null,false,"Sucesso");
+    }
+
+    public BasePackage destroySelf(String action, String destroy_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException, WrongCredentialsException {
+        BasePackage<DeleteSelfUserRequestData> request = BasePackage.fromJson(destroy_request, DeleteSelfUserRequestData.class);
+        Long user_id = AuthRepository.getUserId(request.getData().getToken());
+        this.validateLoggedUser(user_id);
+        User user = userDAO.getUserById(user_id);
+        authUser(request.getData().getPassword(),user);
+        userDAO.deleteUser(user_id);
+        jwtSessionDAO.deleteAllUserJWTSession(user_id);
+        return new BasePackage(action,false,"Usuário removido com sucesso");
+    }
+
+    public void authUser(String password,User user) throws WrongCredentialsException {
+        if(!BCrypt.checkpw(password,user.getPassword())){
+            throw new WrongCredentialsException();
+        }
     }
 }
 

@@ -23,8 +23,9 @@ public class ActionHandler {
                 case "excluir-usuario" -> user_repository.destroy(action, response_action);
                 case "pedido-edicao-usuario" -> user_repository.find(action, response_action);
                 case "pedido-proprio-usuario" -> user_repository.findSelf(action, response_action);
-                case "autoedicao-usuario" -> user_repository.update(action, response_action);
+                case "autoedicao-usuario" -> user_repository.updateSelf(action, response_action);
                 case "edicao-usuario" -> user_repository.update(action, response_action);
+                case "excluir-proprio-usuario" -> user_repository.destroySelf(action, response_action);
                 default -> new BasePackage(response_action, null, true, "Rota não encontrada");
             };
         }catch(Exception e){
