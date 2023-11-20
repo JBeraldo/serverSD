@@ -1,15 +1,15 @@
 package com.sd.server.Packages.data.response.login;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 
-public class LoginResponseData extends ResponseData {
+public class LoginPackageData extends PackageData {
     private String token;
 
-    public LoginResponseData(String token) {
+    public LoginPackageData(String token) {
         this.token = token;
     }
 
-    public LoginResponseData() {
+    public LoginPackageData() {
     }
 
     public String getToken() {

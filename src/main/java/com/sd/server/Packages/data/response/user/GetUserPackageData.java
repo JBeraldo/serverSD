@@ -1,15 +1,15 @@
 package com.sd.server.Packages.data.response.user;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 import com.sd.server.Models.User;
 
 import java.util.List;
 
-public class GetUserResponseData extends ResponseData {
+public class GetUserPackageData extends PackageData {
 
     private List<User> users;
 
-    public GetUserResponseData(List<User> users) {
+    public GetUserPackageData(List<User> users) {
         this.users = users;
     }
 

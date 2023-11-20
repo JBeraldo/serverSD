@@ -1,14 +1,13 @@
-package com.sd.server.Packages.data.request.logout;
+package com.sd.server.Packages.data.request.segment;
 
 import com.sd.server.Base.PackageData;
 
-public class LogoutRequestData extends PackageData {
-
+public class GetSegmentRequestData extends PackageData {
     private String token;
-    public LogoutRequestData(){
+    public GetSegmentRequestData(){
     }
 
-    public LogoutRequestData(String token) {
+    public GetSegmentRequestData(String token) {
         this.token = token;
     }
 

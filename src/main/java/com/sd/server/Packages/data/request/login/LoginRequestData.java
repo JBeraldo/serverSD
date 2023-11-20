@@ -1,8 +1,8 @@
 package com.sd.server.Packages.data.request.login;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 
-public class LoginRequestData extends ResponseData {
+public class LoginRequestData extends PackageData {
     private String email;
     private String password;
 

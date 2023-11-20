@@ -1,8 +1,8 @@
 package com.sd.server.Packages.data.request.user;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 
-public class DeleteSelfUserRequestData extends ResponseData {
+public class DeleteSelfUserRequestData extends PackageData {
     private String token;
 
     private String email;

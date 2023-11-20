@@ -1,14 +1,13 @@
-package com.sd.server.Packages.data.request.logout;
+package com.sd.server.Packages.data.request.point;
 
 import com.sd.server.Base.PackageData;
 
-public class LogoutRequestData extends PackageData {
-
+public class GetPointRequestData extends PackageData {
     private String token;
-    public LogoutRequestData(){
+    public GetPointRequestData(){
     }
 
-    public LogoutRequestData(String token) {
+    public GetPointRequestData(String token) {
         this.token = token;
     }
 

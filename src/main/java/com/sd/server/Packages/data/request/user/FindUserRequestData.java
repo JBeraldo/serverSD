@@ -1,8 +1,8 @@
 package com.sd.server.Packages.data.request.user;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 
-public class FindUserRequestData extends ResponseData {
+public class FindUserRequestData extends PackageData {
     private String token;
     private Long user_id;
 

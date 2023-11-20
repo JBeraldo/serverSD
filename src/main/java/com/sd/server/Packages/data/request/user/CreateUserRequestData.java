@@ -1,9 +1,9 @@
 package com.sd.server.Packages.data.request.user;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 import com.sd.server.Models.User;
 
-public class CreateUserRequestData extends ResponseData {
+public class CreateUserRequestData extends PackageData {
     String name;
     String email;
     String password;

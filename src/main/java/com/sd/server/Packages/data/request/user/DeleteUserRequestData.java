@@ -1,8 +1,8 @@
 package com.sd.server.Packages.data.request.user;
 
-import com.sd.server.Base.ResponseData;
+import com.sd.server.Base.PackageData;
 
-public class DeleteUserRequestData extends ResponseData {
+public class DeleteUserRequestData extends PackageData {
     private String token;
 
     private Long user_id;

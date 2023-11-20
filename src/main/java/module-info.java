@@ -13,7 +13,7 @@ module com.example.serversd {
 
     opens com.sd.view.modal to javafx.fxml;
     opens com.sd.view to javafx.fxml;
-    opens com.sd.server.Models to org.hibernate.orm.core;
+    opens com.sd.server.Models;
     opens com.sd.server.Exceptions;
     opens com.sd.server;
 
@@ -25,6 +25,10 @@ module com.example.serversd {
     exports com.sd.server.Packages.data.request.user to com.fasterxml.jackson.databind;
     exports com.sd.server.Packages.data.request.logout to com.fasterxml.jackson.databind;
     exports com.sd.server.Packages.data.response.user to com.fasterxml.jackson.databind;
-    exports com.sd.server.Models to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.request.point to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.response.point to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.request.segment to com.fasterxml.jackson.databind;
+    exports com.sd.server.Packages.data.response.segment to com.fasterxml.jackson.databind;
+    exports com.sd.server.Models;
     exports com.sd.view;
 }

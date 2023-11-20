@@ -34,6 +34,7 @@ public class UserDAO {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -67,11 +68,11 @@ public class UserDAO {
     public void updateUser(User user) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            System.out.println(user);
             session.update(user);
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -84,6 +85,7 @@ public class UserDAO {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
     }
 

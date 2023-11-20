@@ -56,7 +56,7 @@ public class JWTSessionDAO {
     public void deleteAllUserJWTSession(Long user_id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("DELETE FROM JWTSession WHERE JWTSession.user = :user_id");
+            Query query = session.createQuery("DELETE FROM JWTSession WHERE user.id = :user_id");
             query.setParameter("user_id",user_id);
             query.executeUpdate();
             tx.commit();
