@@ -1,5 +1,6 @@
 package com.sd.server.Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sd.server.Packages.data.request.point.CreatePointRequestData;
 import jakarta.persistence.*;
 
@@ -12,6 +13,7 @@ public class Point {
     @Column
     private String name;
     @Column
+    @JsonProperty("obs")
     private String observation;
 
     public Point() {
