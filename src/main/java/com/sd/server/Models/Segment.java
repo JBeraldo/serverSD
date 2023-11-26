@@ -17,15 +17,14 @@ public class Segment {
     Point origin;
     @ManyToOne
     @JsonProperty("ponto_destino")
-
     Point destination;
     @JsonProperty("distancia")
-    String distance;
+    int distance;
     @Column
     @JsonProperty("obs")
     String observation;
 
-    public Segment(Long id, String direction, Point origin, Point destination, String distance, String observation) {
+    public Segment(Long id, String direction, Point origin, Point destination, int distance, String observation) {
         this.id = id;
         this.direction = direction;
         this.origin = origin;
@@ -78,11 +77,11 @@ public class Segment {
         this.destination = destination;
     }
 
-    public String getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 

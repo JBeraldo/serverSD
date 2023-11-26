@@ -1,8 +1,12 @@
 package com.sd.server.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sd.server.Packages.data.request.point.CreatePointRequestData;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "points")
@@ -15,6 +19,12 @@ public class Point {
     @Column
     @JsonProperty("obs")
     private String observation;
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "origin")
+    private List<Segment> originSegments;
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "destination")
+    private List<Segment> destinationSegments;
 
     public Point() {
     }
