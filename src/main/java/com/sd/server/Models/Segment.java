@@ -13,9 +13,11 @@ public class Segment {
     @JsonProperty("direcao")
     String direction;
     @ManyToOne
+    @JoinColumn(name = "origin_id")
     @JsonProperty("ponto_origem")
     Point origin;
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "destination_id")
     @JsonProperty("ponto_destino")
     Point destination;
     @JsonProperty("distancia")
