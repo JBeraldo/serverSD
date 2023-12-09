@@ -1,11 +1,14 @@
 package com.sd.server.DAO;
 
 import com.sd.server.Models.JWTSession;
+import com.sd.server.Models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import java.util.List;
 
 
 public class JWTSessionDAO {
@@ -29,6 +32,15 @@ public class JWTSessionDAO {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public List<JWTSession> getAllSessions() {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("FROM JWTSession ", JWTSession.class).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     public void deleteAllJWTSession() {

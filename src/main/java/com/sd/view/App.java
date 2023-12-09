@@ -17,6 +17,15 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public static void changeScreen(Stage stage,String resource){
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource(resource));
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         launch();

@@ -58,4 +58,9 @@ public class JWTSession {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", token='" + token + '\'' + ", ip='" + ip;
+    }
 }

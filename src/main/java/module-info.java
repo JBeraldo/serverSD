@@ -18,6 +18,7 @@ module com.example.serversd {
     opens com.sd.server;
 
     exports com.sd.view.modal;
+    exports com.sd.view.ConnectionList;
     exports com.sd.server.Packages to com.fasterxml.jackson.databind;
     exports com.sd.server.Base to com.fasterxml.jackson.databind;
     exports com.sd.server.Packages.data.request.login to com.fasterxml.jackson.databind;

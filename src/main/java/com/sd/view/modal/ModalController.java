@@ -1,7 +1,9 @@
 package com.sd.view.modal;
 
 import com.sd.server.Server;
+import com.sd.view.App;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -13,9 +15,12 @@ public class ModalController {
 
     @FXML
     protected void onHelloButtonClick() throws IOException {
-        Stage stage = (Stage) port_tf.getScene().getWindow();
         Integer port_value = Integer.parseInt(port_tf.getText());
-        stage.close();
         Server.start(port_value);
+        App.changeScreen(getStage(port_tf),"connection_list.fxml");
+    }
+
+    public Stage getStage(Node element){
+        return (Stage) element.getScene().getWindow();
     }
 }

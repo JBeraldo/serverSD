@@ -61,6 +61,7 @@ public class SegmentRepository {
         segment.setDirection(request.getData().getSegment().getDirection());
         segment.setDistance(request.getData().getSegment().getDistance());
         segment.setObservation(request.getData().getSegment().getObservation());
+        segment.setBlocked(request.getData().getSegment().isBlocked());
         segmentDAO.updateSegment(segment);
         return new BasePackage(action,null,false,"Sucesso");
     }

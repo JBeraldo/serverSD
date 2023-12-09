@@ -13,10 +13,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdd6cd5f-d0c3-443a-babc-4ff7ecea2984" name="Changes" comment="Fixes terceira">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sd/view/ConnectionList/ConnectionListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sd/view/connection_list.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/JWTSessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/SegmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/DAO/SegmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/JWTSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/JWTSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/Models/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/PointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/PointRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/SegmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/server/repositories/SegmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/view/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sd/view/modal/ModalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sd/view/modal/ModalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sd/server/database/database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +37,7 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -172,7 +181,7 @@
       <workItem from="1700666234143" duration="596000" />
       <workItem from="1701030356165" duration="973000" />
       <workItem from="1701031732690" duration="1333000" />
-      <workItem from="1701033072140" duration="2190000" />
+      <workItem from="1701033072140" duration="11629000" />
     </task>
     <task id="LOCAL-00001" summary="Login e create user">
       <option name="closed" value="true" />
@@ -246,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701033106702</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixes terceira">
+      <option name="closed" value="true" />
+      <created>1701214112172</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701214112172</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

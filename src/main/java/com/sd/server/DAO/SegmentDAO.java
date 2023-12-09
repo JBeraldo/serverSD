@@ -63,6 +63,18 @@ public class SegmentDAO {
         }
     }
 
+    public void deleteAllPointSegments(Long point_id) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("DELETE FROM Segment WHERE origin.id = :point_id OR destination.id = :point_id");
+            query.setParameter("point_id",point_id);
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void updateSegment(Segment segment) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();

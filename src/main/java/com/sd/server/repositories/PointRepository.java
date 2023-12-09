@@ -2,6 +2,7 @@ package com.sd.server.repositories;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sd.server.DAO.PointDAO;
+import com.sd.server.DAO.SegmentDAO;
 import com.sd.server.Exceptions.NoSessionException;
 import com.sd.server.Exceptions.UnauthorizedUserException;
 import com.sd.server.Models.Point;
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class PointRepository {
     PointDAO pointDAO = new PointDAO();
+    SegmentDAO segmentDAO = new SegmentDAO();
     public BasePackage create(String action, String create_request) throws JsonProcessingException, UnauthorizedUserException, NoSessionException {
         BasePackage<CreatePointRequestData> request = BasePackage.fromJson(create_request, CreatePointRequestData.class);
         Long user_id = AuthRepository.getUserId(request.getData().getToken());
@@ -37,6 +39,7 @@ public class PointRepository {
         long ponto_id = request.getData().getPoint_id();
         AuthRepository.validateAdminUser(adm_id);
         pointDAO.deletePoint(ponto_id);
+        segmentDAO.deleteAllPointSegments(ponto_id);
         return new BasePackage(action,false,"Ponto removido com sucesso");
     }
     public BasePackage<FindPointPackageData> find(String action, String find_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
