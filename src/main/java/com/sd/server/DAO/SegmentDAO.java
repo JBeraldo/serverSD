@@ -42,6 +42,16 @@ public class SegmentDAO {
             return null;
         }
     }
+
+    public List<Segment> getAllUnblockedSegments() {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("FROM Segment WHERE blocked = false", Segment.class).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public void deleteSegment(Long segment_id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();

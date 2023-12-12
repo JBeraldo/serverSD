@@ -61,6 +61,6 @@ public class JWTSession {
 
     @Override
     public String toString() {
-        return "id=" + id + ", token='" + token + '\'' + ", ip='" + ip;
+        return "id=" + id + ", usuário='" + user.getName() + '\'' + ", ip='" + ip;
     }
 }

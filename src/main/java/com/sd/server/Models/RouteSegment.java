@@ -1,6 +1,5 @@
 package com.sd.server.Models;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sd.server.Packages.data.request.segment.CreateSegmentRequestData;
 import jakarta.persistence.*;
@@ -9,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name="segments")
-public class Segment {
+public class RouteSegment {
     @Id
     @GeneratedValue
     private Long id;
@@ -29,30 +28,25 @@ public class Segment {
     @JsonProperty("obs")
     String observation;
 
-    @Column
-    @JsonProperty("bloqueado")
-    boolean blocked;
 
-    public Segment(Long id, String direction, Point origin, Point destination, int distance, String observation, boolean blocked) {
+    public RouteSegment(Long id, String direction, Point origin, Point destination, int distance, String observation) {
         this.id = id;
         this.direction = direction;
         this.origin = origin;
         this.destination = destination;
         this.distance = distance;
         this.observation = observation;
-        this.blocked = blocked;
     }
 
-    public Segment(CreateSegmentRequestData data) {
-        this.direction = data.getSegment().getDirection();
-        this.origin = data.getSegment().getOrigin();
-        this.destination = data.getSegment().getDestination();
-        this.distance = data.getSegment().getDistance();
-        this.observation = data.getSegment().getObservation();
-        this.blocked = data.getSegment().isBlocked();
+    public RouteSegment(Segment data) {
+        this.direction = data.getDirection();
+        this.origin = data.getOrigin();
+        this.destination = data.getDestination();
+        this.distance = data.getDistance();
+        this.observation = data.getObservation();
     }
 
-    public Segment() {
+    public RouteSegment() {
     }
 
 
@@ -104,14 +98,6 @@ public class Segment {
         this.observation = observation;
     }
 
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-    public void setBlocked(boolean blocked) {
-        this.blocked = blocked;
-    }
-
     @Override
     public String toString() {
         return "Segment{" +
@@ -121,7 +107,6 @@ public class Segment {
                 ", destination=" + destination +
                 ", distance=" + distance +
                 ", observation='" + observation + '\'' +
-                ", blocked=" + blocked +
                 '}';
     }
 
@@ -134,7 +119,7 @@ public class Segment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Segment segment = (Segment) o;
+        RouteSegment segment = (RouteSegment) o;
         return Objects.equals(getId(), segment.getId());
     }
 }

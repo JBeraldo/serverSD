@@ -6,6 +6,7 @@ import com.sd.server.Packages.data.request.point.CreatePointRequestData;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "points")
@@ -61,5 +62,27 @@ public class Point {
 
     public void setObservation(String observation) {
         this.observation = observation;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", observation='" + observation + '\'' +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return getId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(getId(), point.getId());
     }
 }

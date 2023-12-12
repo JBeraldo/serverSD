@@ -2,14 +2,16 @@ package com.sd.server.repositories;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sd.server.DAO.SegmentDAO;
+import com.sd.server.Exceptions.NoRouteException;
 import com.sd.server.Exceptions.NoSessionException;
 import com.sd.server.Exceptions.UnauthorizedUserException;
+import com.sd.server.Models.RouteSegment;
 import com.sd.server.Models.Segment;
 import com.sd.server.Packages.BasePackage;
 import com.sd.server.Packages.data.request.segment.*;
 import com.sd.server.Packages.data.response.segment.FindSegmentPackageData;
 import com.sd.server.Packages.data.response.segment.GetSegmentPackageData;
-import com.sd.server.Packages.data.response.user.GetUserPackageData;
+import com.sd.server.Packages.data.response.segment.RequestRoutePackageData;
 
 import java.util.List;
 
@@ -64,6 +66,14 @@ public class SegmentRepository {
         segment.setBlocked(request.getData().getSegment().isBlocked());
         segmentDAO.updateSegment(segment);
         return new BasePackage(action,null,false,"Sucesso");
+    }
+
+    public BasePackage<RequestRoutePackageData> findPath(String action, String find_path_request) throws JsonProcessingException, NoRouteException {
+        BasePackage<RequestRouteRequestData> request = BasePackage.fromJson(find_path_request, RequestRouteRequestData.class);
+        List<RouteSegment> segments = DjikstraRepository.findPath(request.getData().getOrigin(), request.getData().getDestiny());
+        segments.get(segments.size() - 1).setObservation("DESTINO");
+        RequestRoutePackageData response_data = new RequestRoutePackageData(segments);
+        return new BasePackage<RequestRoutePackageData>(action,response_data,false,"Sucesso");
     }
 
 }

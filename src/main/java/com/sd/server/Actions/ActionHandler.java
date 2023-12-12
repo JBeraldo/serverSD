@@ -42,9 +42,11 @@ public class ActionHandler {
                 case "excluir-segmento" -> segment_repository.destroy(action, response_action);
                 case "pedido-edicao-segmento" -> segment_repository.find(action, response_action);
                 case "edicao-segmento" -> segment_repository.update(action, response_action);
+                case "pedido-rotas" -> segment_repository.findPath(action, response_action);
                 default -> new BasePackage(response_action, null, true, "Rota não encontrada");
             };
         }catch(Exception e){
+            e.printStackTrace();
             return new BasePackage(action, null, true, e.getMessage());
         }
     }

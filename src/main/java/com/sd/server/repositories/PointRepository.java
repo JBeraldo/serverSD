@@ -28,7 +28,7 @@ public class PointRepository {
     public BasePackage<GetPointPackageData> get(String action, String get_request) throws JsonProcessingException, NoSessionException, UnauthorizedUserException {
         BasePackage<GetPointRequestData> request = BasePackage.fromJson(get_request, GetPointRequestData.class);
         Long user_id = AuthRepository.getUserId(request.getData().getToken());
-        AuthRepository.validateAdminUser(user_id);
+        AuthRepository.validateCommonUser(user_id);
         List<Point> points = pointDAO.getAllPoints();
         GetPointPackageData response_data = new GetPointPackageData(points);
         return new BasePackage(action,response_data,false,"Sucesso");
